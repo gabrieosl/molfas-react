@@ -19,6 +19,7 @@ import Machines from '~/pages/Admin/Machines';
 import Molds from '~/pages/Admin/Molds';
 import RawMaterials from '~/pages/Admin/RawMaterials';
 import Staff from '~/pages/Admin/Staff';
+import AllOrders from '~/pages/Admin/AllOrders';
 
 export default function Routes() {
   return (
@@ -32,7 +33,7 @@ export default function Routes() {
       <RouteStore path="/signout" exact component={Store} />
       <RouteStore path="/signup" exact component={StoreSignUp} />
       <RouteAdmin path="/admin" exact component={Products} isPrivate />
-      {/* <RouteAdmin path="/admin/finances" component={Default} isPrivate /> */}
+      <RouteAdmin path="/admin/orders" component={AllOrders} isPrivate />
       {/* <RouteAdmin path="/admin/production" component={Default} isPrivate /> */}
       <RouteAdmin path="/admin/configs" component={Products} isPrivate />
       <RouteAdmin path="/admin/signin" component={AdminSignIn} />

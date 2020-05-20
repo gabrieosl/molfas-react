@@ -9,6 +9,12 @@ const fadein = keyframes`
   }
 `;
 
+export const Container = styled.div`
+  background: #fff;
+  border-radius: 4px;
+  padding: 10px;
+`;
+
 export const ItemsListHeader = styled.div`
   display: flex;
   align-content: center;
@@ -62,8 +68,8 @@ export const CreateOrCancelButton = styled.button.attrs({
 
   svg {
     ${props =>
-      !props.isDefaultCard &&
-      css`
+    !props.isDefaultCard &&
+    css`
         transform: rotate(45deg);
       `}
   }

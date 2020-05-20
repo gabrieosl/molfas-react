@@ -76,7 +76,7 @@ export const Container = styled.div`
       display: flex;
       align-items: center;
       border-radius: 20px;
-      color: #112d4e;
+      color: #3f72af;
       border: 0;
       font-size: 18px;
 

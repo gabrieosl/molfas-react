@@ -187,13 +187,13 @@ export default function ItemsList({
           {!readOnly && isDefaultCard && buttons}
           {((!readOnly && defaultCreateButton && isDefaultCard) ||
             !isDefaultCard) && (
-            <CreateOrCancelButton
-              isDefaultCard={isDefaultCard}
-              onClick={handleCreateOrCancelButton}
-            >
-              <MdAdd />
-            </CreateOrCancelButton>
-          )}
+              <CreateOrCancelButton
+                isDefaultCard={isDefaultCard}
+                onClick={handleCreateOrCancelButton}
+              >
+                <MdAdd />
+              </CreateOrCancelButton>
+            )}
         </ItemsListHeaderButtons>
       </ItemsListHeader>
 

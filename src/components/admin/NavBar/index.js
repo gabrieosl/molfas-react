@@ -19,17 +19,17 @@ export default function NavBar() {
 
   return (
     <Container>
-      <img src={logo} alt="Logo" />
       <Nav>
-        <Link to="/admin">
-          <p>HOME</p>
-        </Link>
-        <Link to="/admin/finances">
-          <p>VENDAS</p>
+        <img src={logo} alt="Logo" />
+        <Link to="/admin/orders">
+          <p>PEDIDOS</p>
         </Link>
         <Link to="/admin/production">
           <p>PRODUÇÃO</p>
         </Link>
+        {/* <Link to="/admin/finances">
+          <p>VENDAS</p>
+        </Link> */}
       </Nav>
       <Aside>
         <Link to="/admin/configs">
