@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import { MdLoop } from 'react-icons/md';
+import React from 'react';
 
 import Header from '~/components/store/Header';
 import ItemList from '~/components/ItemsList';
