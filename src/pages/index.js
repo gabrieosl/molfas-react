@@ -8,7 +8,13 @@ import LoadingContainer from '~/util/LoadingContainer';
 
 import api from '~/services/api';
 
-import { Container, Banner, ContactMap, ContactForm, Map } from './styles';
+import {
+  Container,
+  Banner,
+  ContactMap,
+  ContactForm,
+  Map,
+} from '~/styles/landing';
 
 import { formatPrice } from '~/util/format';
 
