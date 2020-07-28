@@ -1,12 +1,10 @@
 import { createGlobalStyle } from 'styled-components';
-import { darken } from 'polished';
 
-import 'react-toastify/dist/ReactToastify.css';
-import 'react-perfect-scrollbar/dist/css/styles.css';
-
-// export const BG_COLOR_old = '#222E50';
-export const BG_COLOR = '#dbe2ef';
-export const BG_COLOR_DARK = darken(0.15, '#325ca8');
+export const MAIN_COLOR = '#b30000';
+export const MAIN_COLOR_DARK = '#660000';
+export const COLOR_1 = '#FFEBEB';
+export const COLOR_2 = '#FFD6D6';
+export const COLOR_3 = '#FFC2C2';
 
 export default createGlobalStyle`
 
@@ -23,6 +21,7 @@ export default createGlobalStyle`
 
   html, body, #root {
     height: 100%;
+    width: 100%;
   }
 
   #root {
@@ -32,16 +31,16 @@ export default createGlobalStyle`
   }
 
   body {
-    background: ${BG_COLOR};
+    background: ${COLOR_1};
     -webkit-font-smoothing: antialiased;
   }
 
   body, input, button {
-    font: 14px 'Roboto', sans-serif;
+    font: 14px 'Nunito', sans-serif;
   }
 
   h1 {
-    font-family: 'Nunito', sans-serif !important;
+    font-family: 'Roboto', sans-serif !important;
   }
 
   a {

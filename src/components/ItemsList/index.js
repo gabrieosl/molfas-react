@@ -12,7 +12,7 @@ import {
   CreateOrCancelButton,
 } from './styles';
 
-import apiDefault from '~/services/apiAdmin';
+import apiDefault from '~/services/api';
 
 export default function ItemsList({
   cards,
@@ -104,9 +104,9 @@ export default function ItemsList({
 
   async function deleteItemFromServer(item) {
     // eslint-disable-next-line no-alert
-    if (!window.confirm(`Confirma a exclusão de ${item.name}`)) {
-      return;
-    }
+    // if (!window.confirm(`Confirma a exclusão de ${item.name}`)) {
+    //   return;
+    // }
     try {
       await api.delete(`${apiURL}/${item.id}`);
       toast.success(`${item.name} removido`);
@@ -187,13 +187,13 @@ export default function ItemsList({
           {!readOnly && isDefaultCard && buttons}
           {((!readOnly && defaultCreateButton && isDefaultCard) ||
             !isDefaultCard) && (
-              <CreateOrCancelButton
-                isDefaultCard={isDefaultCard}
-                onClick={handleCreateOrCancelButton}
-              >
-                <MdAdd />
-              </CreateOrCancelButton>
-            )}
+            <CreateOrCancelButton
+              isDefaultCard={isDefaultCard}
+              onClick={handleCreateOrCancelButton}
+            >
+              <MdAdd />
+            </CreateOrCancelButton>
+          )}
         </ItemsListHeaderButtons>
       </ItemsListHeader>
 

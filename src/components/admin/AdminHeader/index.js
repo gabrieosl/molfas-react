@@ -1,6 +1,6 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
-import { Link } from 'react-router-dom';
+import Link from 'next/link';
 
 import { Container, Title } from './styles';
 
@@ -13,43 +13,34 @@ export default function AdminHeader({ selected }) {
       </Title>
       <ul>
         <li>
-          <Link
-            to="/admin/products"
-            className={selected === 'produtos' ? 'selected' : 'aaa'}
-          >
-            Produtos
+          <Link href="/admin/products">
+            <a className={selected === 'produtos' ? 'selected' : 'aaa'}>
+              Produtos
+            </a>
           </Link>
         </li>
         <li>
-          <Link
-            to="/admin/machines"
-            className={selected === 'máquinas' ? 'selected' : 'aaa'}
-          >
-            Injetoras
+          <Link href="/admin/machines">
+            <a className={selected === 'máquinas' ? 'selected' : 'aaa'}>
+              Injetoras
+            </a>
           </Link>
         </li>
         <li>
-          <Link
-            to="/admin/molds"
-            className={selected === 'moldes' ? 'selected' : 'aaa'}
-          >
-            Moldes
+          <Link href="/admin/molds">
+            <a className={selected === 'moldes' ? 'selected' : 'aaa'}>Moldes</a>
           </Link>
         </li>
         <li>
-          <Link
-            to="/admin/materia-prima"
-            className={selected === 'matéria prima' ? 'selected' : 'aaa'}
-          >
-            Matéria prima
+          <Link href="/admin/materia-prima">
+            <a className={selected === 'matéria prima' ? 'selected' : 'aaa'}>
+              Matéria prima
+            </a>
           </Link>
         </li>
         <li>
-          <Link
-            to="/admin/staff"
-            className={selected === 'staff' ? 'selected' : 'aaa'}
-          >
-            Staff
+          <Link href="/admin/staff">
+            <a className={selected === 'staff' ? 'selected' : 'aaa'}>Staff</a>
           </Link>
         </li>
       </ul>

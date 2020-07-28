@@ -20,34 +20,25 @@
     "ecmaVersion": 2018,
     "sourceType": "module"
   },
-  "plugins": [
-    "react",
-    "prettier"
-  ],
+  "plugins": ["react", "prettier"],
   "rules": {
+    "jsx-a11y/anchor-is-valid": "off",
+    "react/prop-types": "off",
     "prettier/prettier": "error",
     "react/jsx-filename-extension": [
       "error",
       {
-        "extensions": [
-          ".js",
-          ".jsx"
-        ]
+        "extensions": [".js", ".jsx"]
       }
     ],
     "no-console": [
       "error",
       {
-        "allow": [
-          "tron",
-          "log"
-        ]
+        "allow": ["tron", "log"]
       }
     ],
     "no-param-reassign": "off",
-    "react/jsx-props-no-spreading": [
-      "off"
-    ],
+    "react/jsx-props-no-spreading": ["off"],
     "import/prefer-default-export": "off"
   },
   "settings": {
