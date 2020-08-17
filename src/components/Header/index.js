@@ -24,7 +24,7 @@ import { signOut } from '~/redux/auth/actions';
 
 export default function Header() {
   const dispatch = useDispatch();
-  const customer = useSelector(state => state.authStore.customer);
+  const user = useSelector(state => state.auth.user);
   const cartLength = useSelector(state => state.cart.length);
 
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -57,12 +57,12 @@ export default function Header() {
         </Navigation>
         <hr />
         <Customer>
-          {customer ? (
+          {user ? (
             <>
               <span>
                 Olá
                 <Link href="/store/profile">
-                  <a>{customer.firstName}</a>
+                  <a>{user.firstName}</a>
                 </Link>
               </span>
               <Link href="/store/orders">

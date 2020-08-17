@@ -1,39 +1,32 @@
 export function signInRequest(email, password) {
   return {
-    type: '@authStore/SIGN_IN_REQUEST',
+    type: '@auth/SIGN_IN_REQUEST',
     payload: { email, password },
   };
 }
 
-export function signInSuccess(token, customer) {
+export function signInSuccess(token, user) {
   return {
-    type: '@authStore/SIGN_IN_SUCCESS',
-    payload: { token, customer },
+    type: '@auth/SIGN_IN_SUCCESS',
+    payload: { token, user },
   };
 }
 
 export function signUpRequest(firstName, lastName, email, password) {
   return {
-    type: '@authStore/SIGN_UP_REQUEST',
+    type: '@auth/SIGN_UP_REQUEST',
     payload: { firstName, lastName, email, password },
   };
 }
 
 export function signFailure() {
   return {
-    type: '@authStore/SIGN_FAILURE',
+    type: '@auth/SIGN_FAILURE',
   };
 }
 
 export function signOut() {
   return {
-    type: '@authStore/SIGN_OUT',
-  };
-}
-
-export function setViewMode(mode) {
-  return {
-    type: '@authStore/SET_PRODUCTS_MODE_VIEW',
-    payload: { mode },
+    type: '@auth/SIGN_OUT',
   };
 }

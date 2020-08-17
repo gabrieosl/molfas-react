@@ -4,41 +4,36 @@ const INITIAL_STATE = {
   signed: false,
   token: null,
   loading: false,
-  customer: null,
-  viewMode: 'grid',
+  user: null,
 };
 
 export default function auth(state = INITIAL_STATE, action) {
   return produce(state, draft => {
     switch (action.type) {
-      case '@authStore/SIGN_IN_REQUEST': {
+      case '@auth/SIGN_IN_REQUEST': {
         draft.loading = true;
         break;
       }
-      case '@authStore/SIGN_IN_SUCCESS': {
+      case '@auth/SIGN_IN_SUCCESS': {
         draft.loading = false;
         draft.signed = true;
         draft.token = action.payload.token;
-        draft.customer = action.payload.customer;
+        draft.user = action.payload.user;
 
         break;
       }
-      case '@authStore/SIGN_FAILURE': {
+      case '@auth/SIGN_FAILURE': {
         draft.loading = false;
         draft.signed = false;
         draft.token = null;
-        draft.customer = null;
+        draft.user = null;
         break;
       }
-      case '@authStore/SIGN_OUT': {
+      case '@auth/SIGN_OUT': {
         draft.loading = false;
         draft.signed = false;
         draft.token = null;
-        draft.customer = null;
-        break;
-      }
-      case '@authStore/SET_PRODUCTS_MODE_VIEW': {
-        draft.viewMode = action.payload.mode;
+        draft.user = null;
         break;
       }
       default:

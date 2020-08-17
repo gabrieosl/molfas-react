@@ -6,7 +6,7 @@ export default reducers => {
     {
       key: 'molfas',
       storage,
-      whitelist: ['authAdmin', 'authStore', 'cart'],
+      whitelist: ['auth', 'cart'],
     },
     reducers
   );
