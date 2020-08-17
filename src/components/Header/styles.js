@@ -1,168 +1,172 @@
-import styled from 'styled-components';
-
-import { COLOR_1, MAIN_COLOR, MAIN_COLOR_DARK } from '~/styles/global';
+import styled, { css } from 'styled-components';
 
 export const Container = styled.header`
+  position: relative;
   width: 100%;
-  box-shadow: 0px 2px 10px 1px rgba(0, 0, 0, 0.2);
-  background: #fff;
-
-  @media (max-width: 800px) {
-    .desktop {
-      display: none;
-    }
-    .mobile {
-      display: flex;
-    }
-  }
-  @media (min-width: 801px) {
-    .desktop {
-      display: flex;
-    }
-    .mobile {
-      display: none;
-    }
-  }
-`;
-
-export const ContentMobile = styled.div`
   height: 40px;
-  background: #b30000;
 
-  nav {
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    height: 40px;
-
-    .side-drawer_button {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      align-items: center;
-
-      height: 40px;
-      width: 40px;
-      padding: 10px 0;
-      background: none;
-      border: 0;
-
-      .side-drawer__line {
-        width: 20px;
-        height: 3px;
-        background: #fff;
-      }
-    }
-
-    a.logo-small {
-      > img {
-        height: 40px;
-      }
-    }
-
-    .cart {
-      display: flex;
-      align-items: center;
-      height: 40px;
-      width: 40px;
-
-      color: #fff;
-
-      > svg {
-        width: 25px;
-        height: 25px;
-      }
-    }
-  }
-`;
-
-export const ContentDesktop = styled.div`
   display: flex;
-  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
 
-  width: 100%;
-  max-width: 1100px;
-  margin: 0 auto;
+  padding: 0 10px;
+  box-shadow: 0px 2px 10px 1px rgba(0, 0, 0, 0.2);
+  background: ${props => props.theme.primary};
 
-  section {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-
-    width: 100%;
-    height: 50px;
-    color: ${MAIN_COLOR_DARK};
-
-    div.credits {
-      display: flex;
-      align-items: center;
-
-      p {
-        display: flex;
-        align-items: center;
-        margin-right: 10px;
-
-        svg {
-          margin: 0 5px;
-        }
-      }
-    }
-
-    nav {
-      display: flex;
-      align-items: center;
-
-      svg {
-        height: 18px;
-        width: 18px;
-        margin-right: 5px;
-      }
-
-      p {
-        display: flex;
-        align-items: center;
-
-        color: ${MAIN_COLOR};
-        margin-right: 40px;
-      }
-
-      a {
-        display: flex;
-        align-items: center;
-
-        color: ${MAIN_COLOR};
-        margin: 0 10px;
-      }
-    }
+  #logo-small {
+    height: 40px;
+    width: 40px;
   }
 
-  hr {
-    border: 0;
-    border-bottom: 1px solid ${COLOR_1};
-    width: 100%;
-  }
-
-  main {
-    display: flex;
-    align-items: center;
-
-    width: 100%;
+  @media (min-width: 769px) {
     height: 100px;
 
-    img {
-      height: 40px;
+    background: ${props => props.theme.background};
+
+    #logo-small {
+      display: none !important;
     }
+  }
+`;
 
-    nav {
+export const Hamburguer = styled.button`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  height: 40px;
+  width: 40px;
+  padding: 10px 0;
+  background: none;
+  border: 0;
+
+  div.hamburger-line {
+    width: 20px;
+    height: 3px;
+    background: ${props => props.theme.background};
+  }
+
+  @media (min-width: 769px) {
+    display: none;
+  }
+`;
+
+export const Backdrop = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+
+  display: none;
+  opacity: 0;
+
+  background: #000;
+
+  ${props =>
+    props.isMenuOpen &&
+    css`
       display: flex;
-      align-items: center;
-      margin-left: 20px;
+      opacity: 0.7;
+    `}
+`;
 
-      a {
-        color: ${MAIN_COLOR};
-        font-size: 1rem;
-        padding: 0 8px;
-      }
+export const Menu = styled.div`
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 300px;
+  height: 100%;
+
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+
+  background: ${props => props.theme.background};
+  padding: 10px;
+  transition: all 0.3s;
+  transform: translateX(-100%);
+
+  ${props =>
+    props.isMenuOpen &&
+    css`
+      transform: translateX(0);
+    `}
+
+  @media (min-width: 769px) {
+    position: static;
+    width: 100%;
+
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 0 10px;
+    transform: translateX(0);
+  }
+`;
+
+export const Navigation = styled.nav`
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+
+  margin: 15px;
+
+  a {
+    margin: 4px 8px;
+    color: ${props => props.theme.text};
+  }
+
+  @media (min-width: 769px) {
+    flex-direction: row;
+    align-items: center;
+  }
+`;
+
+export const Customer = styled.aside`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  margin: 15px;
+
+  span {
+    color: ${props => props.theme.text};
+  }
+
+  > a {
+    margin: 5px 10px;
+    color: ${props => props.theme.text};
+  }
+
+  svg {
+    margin-right: 4px;
+  }
+
+  @media (min-width: 769px) {
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+  }
+`;
+
+export const Cart = styled.a`
+  margin: 0 10px;
+
+  svg {
+    width: 20px;
+    height: 20px;
+    color: ${props => props.theme.background};
+  }
+
+  @media (min-width: 769px) {
+    svg {
+      color: ${props => props.theme.text};
     }
   }
 `;
