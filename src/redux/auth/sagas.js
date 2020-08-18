@@ -20,7 +20,7 @@ export function* signIn({ payload }) {
     api.defaults.headers.Authorization = `Bearer ${token}`;
 
     yield put(signInSuccess(token, customer));
-    history.push('/store');
+    history.push('/');
   } catch (err) {
     toast.error('Algo deu errado na autenticação. Verifique os dados');
     yield put(signFailure());
@@ -58,7 +58,7 @@ export function setToken({ payload }) {
 }
 
 export function signOut() {
-  history.push('/store');
+  history.push('/');
 }
 
 export default all([

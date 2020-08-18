@@ -9,7 +9,7 @@ import { Container, SignUpContainer } from '~/styles/signup';
 
 export default function SignIn() {
   const dispatch = useDispatch();
-  const loading = useSelector(state => state.authStore.loading);
+  const loading = useSelector(state => state.auth.loading);
 
   function handleSubmit({ firstName, lastName, email, password }) {
     dispatch(signUpRequest(firstName, lastName, email, password));
@@ -40,7 +40,7 @@ export default function SignIn() {
             {loading ? 'Carregando...' : 'Cadastrar'}
           </button>
         </Form>
-        <Link href="/store/signin">
+        <Link href="/signin">
           <a>Entrar</a>
         </Link>
       </SignUpContainer>

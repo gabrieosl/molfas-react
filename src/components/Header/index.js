@@ -51,7 +51,7 @@ export default function Header() {
           <Link href="/">
             <a>Home</a>
           </Link>
-          <Link href="/store">
+          <Link href="/products">
             <a>Loja</a>
           </Link>
         </Navigation>
@@ -61,11 +61,11 @@ export default function Header() {
             <>
               <span>
                 Olá
-                <Link href="/store/profile">
+                <Link href="/profile">
                   <a>{user.firstName}</a>
                 </Link>
               </span>
-              <Link href="/store/orders">
+              <Link href="/orders">
                 <a>Pedidos</a>
               </Link>
               <button type="button" onClick={logout}>
@@ -78,13 +78,13 @@ export default function Header() {
                 <FaUser />
                 Olá visitante
               </span>
-              <Link href="/store/signin">
+              <Link href="/signin">
                 <a>
                   <FiLogIn />
                   Log in
                 </a>
               </Link>
-              <Link href="/store/signup">
+              <Link href="/signup">
                 <a>
                   <FiUserPlus />
                   Cadastrar
@@ -94,7 +94,7 @@ export default function Header() {
           )}
         </Customer>
       </Menu>
-      <Link href="/store/cart">
+      <Link href="/cart">
         <Cart>
           <MdShoppingCart />
           {cartLength > 0 && <small>{cartLength}</small>}

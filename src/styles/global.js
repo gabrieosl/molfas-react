@@ -1,11 +1,5 @@
 import { createGlobalStyle } from 'styled-components';
 
-export const MAIN_COLOR = '#b30000';
-export const MAIN_COLOR_DARK = '#660000';
-export const COLOR_1 = '#FFEBEB';
-export const COLOR_2 = '#FFD6D6';
-export const COLOR_3 = '#FFC2C2';
-
 export default createGlobalStyle`
 
 * {
@@ -19,19 +13,19 @@ export default createGlobalStyle`
     outline: 0;
   }
 
-  html, body, #root {
+  html, body, #__next {
     height: 100%;
     width: 100%;
   }
 
-  #root {
+  #__next {
     display: flex;
     flex-direction: column;
     position: relative;
   }
 
   body {
-    background: ${COLOR_1};
+    background: ${props => props.theme.background};
     -webkit-font-smoothing: antialiased;
   }
 

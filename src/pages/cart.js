@@ -28,7 +28,7 @@ export default function Cart() {
       subTotal: formatPrice(product.amount * product.price),
     }))
   );
-  const { signed } = store.getState().authStore;
+  const { signed } = store.getState().auth;
   const cartTotal = useMemo(
     () =>
       formatPrice(
@@ -47,7 +47,7 @@ export default function Cart() {
           toast.success('Pedido criado');
           dispatch(CartActions.clearCart());
 
-          history.push('/store');
+          history.push('/');
         }
       } catch (err) {
         toast.error('Algo deu errado. Tente novamente');

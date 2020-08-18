@@ -15,7 +15,7 @@ function Home({ products }) {
     <Container>
       <Header />
       <Banners />
-      <ProductsViewer products={products} fixedMode="grid" />
+      <ProductsViewer products={products} mode="grid" />
       <Contact />
       <Footer />
     </Container>
