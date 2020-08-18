@@ -1,10 +1,12 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  max-width: 50%;
-  min-width: 50%;
-
   display: flex;
+
+  @media all and (min-width: 769px) {
+    max-width: 50%;
+    min-width: 50%;
+  }
 `;
 
 export const SideImages = styled.div`

@@ -1,45 +1,57 @@
 import styled from 'styled-components';
 
 export const Container = styled.div`
-  p {
-    margin: 0 auto;
-    max-width: 1100px;
-    font-size: 16px;
-    color: #3f72af;
-    font-weight: bold;
-    padding: 10px 0;
-  }
+  flex: 1;
 
-  & strong {
+  strong {
     display: flex;
     justify-content: center;
-    margin-top: 20px;
+    margin: 20px 0;
     font-size: 24px;
-    color: #3f72af;
+    color: ${props => props.theme.primary};
+  }
+`;
+
+export const ProductPath = styled.div`
+  p {
+    margin: 0 15px;
+    font-size: 16px;
+    color: ${props => props.theme.primary};
+    font-weight: bold;
+    padding: 10px 0;
   }
 `;
 
 export const ProductWrapper = styled.div`
-  background: #fff;
+  background: ${props => props.theme.background};
   width: 100%;
-  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
 `;
 
 export const ProductContainer = styled.div`
   margin: 0 auto;
+  width: 100%;
   max-width: 1100px;
   display: flex;
+  flex-direction: column;
 
   padding: 15px;
+
+  @media all and (min-width: 769px) {
+    flex-direction: row;
+  }
 `;
 
 export const ProductDetails = styled.div`
   padding: 15px;
-  width: 50%;
+
+  @media all and (min-width: 769px) {
+    width: 50%;
+  }
 
   & strong {
     font-size: 24px;
-    color: #3f72af;
+    color: ${props => props.theme.primary};
     margin-bottom: 10px;
     display: block;
   }
@@ -51,19 +63,19 @@ export const ProductDetails = styled.div`
   div {
     display: flex;
     justify-content: flex-end;
-    border-bottom: 1px solid #3f72af55;
+    border-bottom: 1px solid ${props => props.theme.primary}55;
     padding-bottom: 10px;
 
     span {
-      background: #000099;
-      color: #fff;
+      background: ${props => props.theme.secondary};
+      color: ${props => props.theme.lightText};
       padding: 2px 5px;
       margin: 4px;
       border-radius: 6px;
       font-weight: bold;
 
       &.stock {
-        background: #009900;
+        background: ${props => props.theme.success};
       }
     }
   }
@@ -101,7 +113,7 @@ export const ProductDetails = styled.div`
       padding: 0 15px;
 
       font-size: 28px;
-      color: #3f72af;
+      color: ${props => props.theme.primary};
       font-weight: bold;
     }
 
@@ -109,9 +121,9 @@ export const ProductDetails = styled.div`
       position: relative;
       display: flex;
       align-content: center;
-      color: #fff;
+      color: ${props => props.theme.lightText};
       border: 1px solid transparent;
-      background: #3f72af;
+      background: ${props => props.theme.primary};
       padding: 0 30px;
       height: 40px;
       border-radius: 20px;
