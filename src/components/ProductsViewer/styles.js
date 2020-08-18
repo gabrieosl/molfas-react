@@ -4,26 +4,25 @@ import { darken } from 'polished';
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
+  align-self: center;
 
-  margin: 0 auto;
   padding: 15px;
-  width: 100%;
-  max-width: 1100px;
 
   display: flex;
   align-items: center;
   justify-content: center;
 `;
 
-export const ModeSwitcher = styled.div`
+export const ModeSwitcher = styled.button`
   align-self: flex-end;
 
   display: flex;
   align-items: center;
 
-  background: #3f72af66;
+  background: ${props => props.theme.primary};
+  border: 0;
   border-radius: 5px;
-  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 
   button {
     display: flex;
@@ -34,7 +33,7 @@ export const ModeSwitcher = styled.div`
 
     border-radius: 5px;
     background: none;
-    color: #cccccc;
+    color: ${props => props.theme.default};
 
     svg {
       width: 23px;
@@ -42,8 +41,8 @@ export const ModeSwitcher = styled.div`
     }
 
     &.active {
-      color: #fff;
-      background: #3f72af;
+      color: ${props => props.theme.lightText};
+      background: ${props => props.theme.primary};
       box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
       /* opacity: 1; */
     }
@@ -52,62 +51,53 @@ export const ModeSwitcher = styled.div`
 
 export const ProductsList = styled.ul`
   display: flex;
-  flex-direction: ${props => (props.mode === 'grid' ? 'row' : 'column')};
+  flex-direction: ${props => (props.viewMode === 'grid' ? 'row' : 'column')};
   flex-wrap: wrap;
-
-  margin: 0 auto;
-  padding: 15px;
-
-  width: 100%;
+  justify-content: center;
 `;
 
 export const ProductItem = styled.li`
   display: flex;
-  flex-direction: ${props => (props.mode === 'grid' ? 'column' : 'row')};
+  flex-direction: ${props => (props.viewMode === 'grid' ? 'column' : 'row')};
   justify-content: space-between;
+  align-items: stretch;
 
-  width: ${props => (props.mode === 'grid' ? '240px' : '100%')};
-  height: ${props => (props.mode === 'grid' ? '380px' : '120px')};
+  ${props =>
+    props.viewMode === 'grid'
+      ? css`
+          width: 240px;
+        `
+      : css`
+          height: 120px;
+        `};
+
+  /* width: ${props => (props.viewMode === 'grid' ? '240px' : '100%')};
+  height: ${props => (props.viewMode === 'grid' ? '380px' : '120px')}; */
 
   margin: 10px;
 
-  background: #fff;
+  background: ${props => props.theme.background};
   border-radius: 5px;
-  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
-
-  .favorite-button {
-    display: none;
-    position: absolute;
-    top: 10px;
-    right: 10px;
-    background: none;
-    border: 0;
-    color: #ff6666;
-
-    svg {
-      width: 25px;
-      height: 25px;
-    }
-  }
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
 
   .details {
     position: relative;
     flex-grow: 1;
 
     display: flex;
-    flex-direction: ${props => (props.mode === 'grid' ? 'column' : 'row')};
-    align-items: ${props => (props.mode === 'grid' ? 'center' : 'center')};
+    flex-direction: ${props => (props.viewMode === 'grid' ? 'column' : 'row')};
+    align-items: ${props => (props.viewMode === 'grid' ? 'center' : 'center')};
     justify-content: ${props =>
-      props.mode === 'grid' ? 'space-between' : 'flex-start'};
+      props.viewMode === 'grid' ? 'space-between' : 'flex-start'};
 
     width: 100%;
     height: 100%;
 
     .product-pic {
-      width: ${props => (props.mode === 'grid' ? '180px' : '100px')};
-      height: ${props => (props.mode === 'grid' ? '180px' : '100px')};
+      width: ${props => (props.viewMode === 'grid' ? '180px' : '100px')};
+      height: ${props => (props.viewMode === 'grid' ? '180px' : '100px')};
       object-fit: cover;
-      margin: ${props => (props.mode === 'grid' ? '30px' : '10px')};
+      margin: ${props => (props.viewMode === 'grid' ? '30px' : '10px')};
     }
     .no-pic {
       opacity: 0.1;
@@ -117,25 +107,25 @@ export const ProductItem = styled.li`
       display: flex;
       flex-direction: column;
       justify-content: ${props =>
-        props.mode === 'grid' ? 'space-between' : 'space-around'};
+        props.viewMode === 'grid' ? 'space-between' : 'space-around'};
 
       height: 100%;
       width: 100%;
-      padding: ${props => (props.mode === 'grid' ? '0 10px' : 'auto 0')};
-      margin-top: ${props => (props.mode === 'grid' ? '-15px' : '0')};
+      padding: ${props => (props.viewMode === 'grid' ? '0 10px' : 'auto 0')};
+      margin-top: ${props => (props.viewMode === 'grid' ? '-15px' : '0')};
 
       strong {
-        color: #112d4e;
+        color: ${props => props.theme.text};
         font-size: 16px;
         line-height: 1.5em;
         height: 3em;
       }
 
       small {
-        color: #112d4e;
+        color: ${props => props.theme.text};
         font-size: 12px;
         line-height: 1.5em;
-        max-height: ${props => (props.mode === 'grid' ? '3em' : '6em')};
+        max-height: ${props => (props.viewMode === 'grid' ? '3em' : '6em')};
         overflow: hidden;
         text-overflow: ellipsis;
       }
@@ -143,13 +133,10 @@ export const ProductItem = styled.li`
   }
 
   &:hover {
-    .favorite-button {
-      display: block;
-    }
     .price-and-cart {
       button {
         border: 1px solid transparent;
-        background: ${darken(0.1, '#3f72af')};
+        background: ${props => darken(0.1, props.theme.text)};
       }
     }
   }
@@ -157,21 +144,21 @@ export const ProductItem = styled.li`
   .price-and-cart {
     align-self: center;
     display: flex;
-    flex-direction: ${props => (props.mode === 'grid' ? 'row' : 'column')};
+    flex-direction: ${props => (props.viewMode === 'grid' ? 'row' : 'column')};
     justify-content: center;
     align-items: center;
     min-width: 130px;
 
     ${props =>
-      props.mode === 'grid' &&
+      props.viewMode === 'grid' &&
       css`
-        border-top: 1px solid #3f72af33;
+        border-top: 1px solid ${`${props.theme.primary}33`};
         width: 100%;
       `};
     ${props =>
-      props.mode === 'list' &&
+      props.viewMode === 'list' &&
       css`
-        border-left: 1px solid #3f72af33;
+        border-left: 1px solid ${`${props.theme.primary}33`};
         height: 100%;
       `};
 
@@ -179,12 +166,12 @@ export const ProductItem = styled.li`
       display: flex;
       align-items: center;
       justify-content: center;
-      width: ${props => (props.mode === 'grid' ? '50%' : 'auto')};
+      width: ${props => (props.viewMode === 'grid' ? '50%' : 'auto')};
 
       padding: 0 15px;
 
       font-size: 20px;
-      color: #3f72af;
+      color: ${props => props.theme.primary};
       font-weight: bold;
     }
 
@@ -192,9 +179,9 @@ export const ProductItem = styled.li`
       position: relative;
       display: flex;
       align-content: center;
-      color: #fff;
+      color: ${props => props.theme.lightText};
       border: 1px solid transparent;
-      background: #3f72af;
+      background: ${props => props.theme.primary};
       padding: 0 20px;
       height: 40px;
       border-radius: 20px;
