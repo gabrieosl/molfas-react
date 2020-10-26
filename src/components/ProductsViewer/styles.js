@@ -9,7 +9,7 @@ export const Container = styled.div`
   padding: 15px;
 
   display: flex;
-  align-items: center;
+  align-items: stretch;
   justify-content: center;
 `;
 
@@ -53,7 +53,12 @@ export const ProductsList = styled.ul`
   display: flex;
   flex-direction: ${props => (props.viewMode === 'grid' ? 'row' : 'column')};
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-between;
+
+  &::after {
+    content: '';
+    flex: auto;
+  }
 `;
 
 export const ProductItem = styled.li`
@@ -70,9 +75,6 @@ export const ProductItem = styled.li`
       : css`
           height: 120px;
         `};
-
-  /* width: ${props => (props.viewMode === 'grid' ? '240px' : '100%')};
-  height: ${props => (props.viewMode === 'grid' ? '380px' : '120px')}; */
 
   margin: 10px;
 

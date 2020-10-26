@@ -1,7 +1,5 @@
 import styled from 'styled-components';
 
-import { MAIN_COLOR, MAIN_COLOR_DARK, COLOR_1 } from '~/styles/global';
-
 export const Container = styled.div`
   display: flex;
   flex-direction: column;
@@ -21,12 +19,12 @@ export const Container = styled.div`
   }
 
   strong {
-    color: ${MAIN_COLOR_DARK};
+    color: ${props => props.theme.text};
     font-size: 18px;
   }
 
   span {
-    color: ${MAIN_COLOR_DARK};
+    color: ${props => props.theme.text};
   }
 
   form {
@@ -41,10 +39,10 @@ export const Container = styled.div`
       height: 40px;
       border: 0;
       border-radius: 4px;
-      background: ${COLOR_1};
+      background: ${props => props.theme.default};
       padding: 0 10px;
       font-weight: bold;
-      color: ${MAIN_COLOR};
+      color: ${props => props.theme.primary};
 
       &::placeholder {
         color: #ccc;
@@ -52,7 +50,7 @@ export const Container = styled.div`
     }
 
     button {
-      background: ${MAIN_COLOR};
+      background: ${props => props.theme.primary};
       color: #fff;
       font-size: 16px;
       font-weight: bold;
@@ -63,7 +61,7 @@ export const Container = styled.div`
       transition: background 0.2s;
 
       &:hover {
-        background: ${MAIN_COLOR_DARK};
+        background: ${props => props.theme.text};
       }
     }
   }
@@ -73,7 +71,7 @@ export const Container = styled.div`
 
   button {
     margin-top: 15px;
-    color: ${MAIN_COLOR};
+    color: ${props => props.theme.primary};
     border: 0;
     background: none;
   }

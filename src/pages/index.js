@@ -24,9 +24,7 @@ function Home({ products }) {
 
 Home.getInitialProps = async () => {
   let products = [];
-  const response = await api.get(
-    'https://api.fortureplasticos.com.br/store/products'
-  );
+  const response = await api.get('http://localhost:3333/products');
   if (response.data) {
     products = response.data;
   }

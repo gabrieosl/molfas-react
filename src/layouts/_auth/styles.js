@@ -1,14 +1,16 @@
 import styled from 'styled-components';
 
-import { MAIN_COLOR, MAIN_COLOR_DARK } from '~/styles/global';
-
 export const Container = styled.div`
   display: flex;
   align-items: stretch;
 
   height: 100vh;
 
-  background: linear-gradient(90deg, ${MAIN_COLOR}, ${MAIN_COLOR_DARK});
+  background: linear-gradient(
+    90deg,
+    ${props => props.theme.primary},
+    ${props => props.theme.backgroundDark}
+  );
 
   a.home {
     display: flex;
@@ -17,7 +19,7 @@ export const Container = styled.div`
     position: absolute;
     top: 0;
     left: 0;
-    color: #fff;
+    color: ${props => props.theme.lightText};
 
     padding: 10px;
   }

@@ -5,6 +5,7 @@ import { Form, Input } from '@rocketseat/unform';
 
 import { signInRequest } from '~/redux/auth/actions';
 
+import Layout from '../layouts/_auth';
 import { Container, ResetPassword } from '~/styles/signin';
 
 export default function SignIn() {
@@ -20,29 +21,31 @@ export default function SignIn() {
     setVisible(!visible);
   }
   return (
-    <Container>
-      <img src="/logo_small_red.png" alt="Forture" size={32} color="#fff" />
-      <strong>Área do Cliente</strong>
-      <span>Entre com suas credenciais</span>
-      <Form onSubmit={handleSubmit}>
-        <Input
-          name="email"
-          type="text"
-          autoCapitalize="off"
-          placeholder="E-mail"
-        />
-        <Input name="password" type="password" placeholder="Senha" />
-        <button type="submit">{loading ? 'Carregando...' : 'Acessar'}</button>
-      </Form>
-      <Link href="/signup">
-        <a>Cadastrar</a>
-      </Link>
-      <button type="button" onClick={toogleResetPassword}>
-        Esqueci a senha
-      </button>
-      <ResetPassword visible={visible}>
-        <p>GAGAGAGAGAGAGA</p>
-      </ResetPassword>
-    </Container>
+    <Layout>
+      <Container>
+        <img src="/logo_small_red.png" alt="Forture" size={32} color="#fff" />
+        <strong>Área do Cliente</strong>
+        <span>Entre com suas credenciais</span>
+        <Form onSubmit={handleSubmit}>
+          <Input
+            name="email"
+            type="text"
+            autoCapitalize="off"
+            placeholder="E-mail"
+          />
+          <Input name="password" type="password" placeholder="Senha" />
+          <button type="submit">{loading ? 'Carregando...' : 'Acessar'}</button>
+        </Form>
+        <Link href="/signup">
+          <a>Cadastrar</a>
+        </Link>
+        <button type="button" onClick={toogleResetPassword}>
+          Esqueci a senha
+        </button>
+        <ResetPassword visible={visible}>
+          <p>GAGAGAGAGAGAGA</p>
+        </ResetPassword>
+      </Container>
+    </Layout>
   );
 }

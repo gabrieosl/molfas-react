@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 export const Container = styled.div`
   width: 100%;
-  background: #112d4e;
+  background: ${props => props.theme.backgroundDark};
 `;
 
 export const Wrapper = styled.div`
@@ -13,7 +13,7 @@ export const Wrapper = styled.div`
   margin: 0 auto;
   padding: 20px 0;
 
-  color: #fff;
+  color: ${props => props.theme.lightText};
 
   img {
     height: 130px;
@@ -34,7 +34,7 @@ export const Wrapper = styled.div`
   }
 
   a {
-    color: #fff;
+    color: ${props => props.theme.lightText};
   }
   svg {
     margin-bottom: 5px;
